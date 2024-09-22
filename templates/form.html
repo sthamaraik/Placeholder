@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Police Notice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            background-image: url('/static/Form_Image.jpg'); /* Reference the correct path to your image */
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.6); /* White with 80% opacity */
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-container img {
+            max-width: 100px; /* Adjust the size of the logo */
+            height: auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        form {
+            width: 100%; /* Make the form take the full width of the container */
+        }
+        label {
+            margin-bottom: 0px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="date"], input[type="tel"], input[type="number"], input[type="submit"] {
+            width: 99%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #965c5c;
+            border-radius: 10px;
+        }
+        input[type="submit"] {
+            background-color: #28a745;
+            color: rgb(255, 255, 255);
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        /* Table styling */
+        .group-table {
+            width: auto; /* Keep the table width as it is */
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .group-table th, .group-table td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+        .group-table th {
+            background-color: #d87575;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="/static/images/logo.png" alt="Logo">
+        </div>        
+        <h1>Theni Cybercrime PS</h1>
+        <form action="/generate" method="POST">
+            <label for="section">Section (Text and Symbols):</label>
+            <input type="text" id="section" name="section" required>
+
+            <label for="Date_top">Letter Date:</label>
+            <input type="date" id="Date_top" name="Date_top" required>
+
+            <label for="Sender_Contact_No">Sender Contact No (Numbers):</label>
+            <input type="tel" id="Sender_Contact_No" name="Sender_Contact_No" required>
+
+            <label for="Bank_Name">Bank Name (Text and Symbols):</label>
+            <input type="text" id="Bank_Name" name="Bank_Name" required>
+
+            <label for="Debit_freeze">Debit Freeze (Text and Symbols):</label>
+            <input type="text" id="Debit_freeze" name="Debit_freeze" required>
+
+            <label for="FIR_CSR">FIR/CSR (Text and Symbols):</label>
+            <input type="text" id="FIR_CSR" name="FIR_CSR" required>
+
+            <label for="No_Year">No/Year (Text and Symbols):</label>
+            <input type="text" id="No_Year" name="No_Year" required>
+
+            <label for="Date_FIR_CSR">Date (FIR/CSR):</label>
+            <input type="date" id="Date_FIR_CSR" name="Date_FIR_CSR" required>
+
+            <label for="NCRP_No">NCRP No (Numbers):</label>
+            <input type="number" id="NCRP_No" name="NCRP_No" required>
+
+            <label for="Mr_Mrs_Name">Mr./Mrs. Name (Text and Symbols):</label>
+            <input type="text" id="Mr_Mrs_Name" name="Mr_Mrs_Name" required>
+
+            <label for="Type_of_offence">Type of Offence (Text and Symbols):</label>
+            <input type="text" id="Type_of_offence" name="Type_of_offence" required>
+
+            <!-- Table Grouping for Bank Details -->
+            <table class="group-table">
+                <thead>
+                    <tr>
+                        <th>Bank Name Letter</th>
+                        <th>Account No & IFSC</th>
+                        <th>Transaction ID</th>
+                        <th>Fraud Amount</th>
+                        <th>Transaction Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" id="Bank_Name_letter" name="Bank_Name_letter" required></td>
+                        <td><input type="text" id="ACC_No_IFSC" name="ACC_No_IFSC" required></td>
+                        <td><input type="number" id="Txn_ID" name="Txn_ID" required></td>
+                        <td><input type="number" id="Fraud_amount" name="Fraud_amount" step="0.01" required></td>
+                        <td><input type="date" id="Txn_date" name="Txn_date" required></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <label for="Stment_date_from">Statement Date From:</label>
+            <input type="date" id="Stment_date_from" name="Stment_date_from" required>
+
+            <label for="OutTxn_date">Outward Transaction Date:</label>
+            <input type="date" id="OutTxn_date" name="OutTxn_date" required>
+
+            <label for="IP_from_date">IP From Date:</label>
+            <input type="date" id="IP_from_date" name="IP_from_date" required>
+
+            <label for="IP_end_date">IP End Date:</label>
+            <input type="date" id="IP_end_date" name="IP_end_date" required>
+
+            <input type="submit" value="Generate Word Document">
+        </form>
+    </div>
+</body>
+</html>
